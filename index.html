@@ -11,16 +11,110 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<style>
-			/* Reduce vertical padding */
+			/* Adjust vertical padding to align with hamburger menu */
 			#header {
-				padding: 3em 0 1em 0 !important;
+				padding: 3em 2.7em 2em 0 !important;
+				align-items: center !important;
 			}
+			
+			/* Remove margins from h2 to help with alignment */
+			#header .logo h2 {
+				margin: 0 !important;
+				line-height: 1 !important;
+			}
+			
+			/* Ensure icons align vertically */
+			#header .icons {
+				display: flex !important;
+				align-items: center !important;
+				justify-content: flex-end !important;
+			}
+			
 			#banner {
 				padding: 3em 0 2em 0 !important;
 			}
 			#main > .inner > section {
 				padding: 3em 0 2em 0 !important;
 			}
+
+			/* Adjust header title size and weight */
+			#header .logo h2 {
+				font-size: 2em !important;
+				font-weight: 500 !important;
+			}
+
+			/* Make header icons bigger and reduce spacing */
+			#header .icons li {
+				padding-left: 0.5em !important;
+			}
+			
+			#header .icons a {
+				font-size: 1.3em !important;
+			}
+
+			/* Fix banner overflow issues */
+			#banner {
+				overflow: hidden !important;
+			}
+
+			/* Adjust image container to prevent overflow */
+			#banner .image {
+				margin: 0 0 2em 2em !important;
+				max-width: 45% !important;
+			}
+
+			#banner .content {
+				max-width: 50% !important;
+			}
+
+			/* Make sure image doesn't overflow its container */
+			#banner .image img {
+				max-height: 500px !important;
+				width: 100% !important;
+				height: auto !important;
+				object-fit: cover !important;
+			}
+
+			/* Ensure wrapper doesn't cause horizontal scroll */
+			#wrapper {
+				overflow-x: hidden !important;
+			}
+
+			/* Fix sidebar to prevent cut-off */
+			#sidebar > .inner {
+				overflow-x: hidden !important;
+			}
+
+			#sidebar .toggle {
+				position: fixed !important;
+				top: 1.75em !important;
+				z-index: 10001 !important;
+			}
+
+			/* Responsive adjustments */
+			@media screen and (max-width: 1280px) {
+				#banner .image {
+					max-width: 40% !important;
+					margin: 0 0 2em 1.5em !important;
+				}
+				
+				#banner .image img {
+					max-height: 400px !important;
+				}
+			}
+
+			@media screen and (orientation: portrait) {
+				#banner .image {
+					max-width: 100% !important;
+					margin: 0 0 4em 0 !important;
+				}
+			}
+
+			#banner .button.big {
+				padding-left: 2em !important;
+				padding-right: 2em !important;
+			}
+
 		</style>
 	</head>
 	<body class="is-preload">
@@ -34,82 +128,129 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="index.html" class="logo"><h3>Creighton Glasscock</h3></a>
+									<a href="index.html" class="logo"><h2>Creighton Glasscock</h2></a>
 									<ul class="icons">
-										<li><a href="https://github.com/creightonglasscock" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+										<li><a href="mailto:creightonglasscock@gmail.com" target="_blank" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+										<li><a href="https://www.linkedin.com/in/creightonglasscock" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+										<li><a href="https://github.com/creightonglasscock" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+										<li><a href="https://scholar.google.com/citations?user=rilOKuUAAAAJ" target="_blank" class="icon solid fa-graduation-cap"><span class="label">Google Scholar</span></a></li>
 									</ul>
 								</header>
 
 							<!-- Banner -->
 								<section id="banner">
 									<div class="content">
-										<header>
-											<h4>
-												Computer Science Ph.D. Student <br />
-												University of California, Santa Cruz  <br /><br />
-												Advised by Professor Leilani Gilpin
-											</h4>
-										</header>
-										<p> My research explores the development of more sustainable and efficient AI agents. My techical approach lies at the intersection of reinforcement learning and langage models. </p>
-										<p> My current project is the first to adapt lanugage model compression to the online agentic domain, which I accomplish by leveraging insights from reinforcement learning in order to identify model components which contribute the most to reward. Learn more about this project below!</p>
+										<p> Hello! I am a Ph.D. student in Computer Science at the University of California, Santa Cruz. I am grateful to be advised by <a href="https://people.ucsc.edu/~lgilpin/" target="_blank">Professor Leilani Gilpin</a> in the <a href="https://aiea-lab.github.io/" target="_blank">Artificial Intelligence Explainability and Accountability (AIEA) Lab</a>. </p>
+										<p> My research explores the development of more efficient and sustainable AI agents. With work at the intersection of reinforcement learning and large language models, I employ novel compression techniques to to extend AI efficiency gains into the agentic domain for solving sequential decision-making problems, namely Markov decision processes. </p>
+										<p> Outside of research, I love exploring the outdoors, primarily through cycling and rock climbing. Please don't hesitate to reach out if you are interested in collaborating! </p>
 										<ul class="actions">
-											<li><a href="research.html" class="button big">My research</a></li>
-											<li><a href="images/cv.pdf" class="button big">Curriculum Vitae</a></li>
+											<li><a href="#research" class="button big">Research</a></li>
+											<li><a href="#education" class="button big">Education</a></li>
+											<li><a href="images/curriculum_vitae.pdf" class="button big">Curriculum Vitae</a></li>
 										</ul>
 										
 									</div>
-									<span class="image object" style="max-height: 100%; align-self: flex-start;">
-										<img src="images/profile.png" alt="" style="max-height: 477px; width: auto; object-fit: cover;" />
+									<span class="image object">
+										<img src="images/profile.png" alt="" />
 									</span>
 								</section>
 
+
 							<!-- Section -->
-								<section>
+								<section id="research">
 									<header class="major">
 										<h2> Research </h2>
 									</header>
 									<div class="posts">
 										<article>
-											<a href="research.html" class="image"><img src="images/stigtmergy.png" alt="" /></a>
+											<a href="research.html" target="_blank" class="image"><img src="images/pruning.png" alt="" /></a>
 											<h3> Reward-Guided Online Pruning for LLM Agents </h3>
-											<p> In preparation for ICML 2026. Introduces a novel LLM pruning method for online MDPs by leveraging insights from reinforcement learning. </p>
+											<p> In preparation for ICML 2026. My current work, in which I leverage reward signals to guide LLM agent pruning in MDPs using a novel REINFORCE-inspired pruning objective, extending LLM pruning to the online agentic domain for the first time. </p>
 											<ul class="actions">
-												<li><a href="research.html" class="button">More</a></li>
+												<li><a href="research.html" target="_blank" class="button">Coming Soon</a></li>
 											</ul>
 										</article>
 										<article>
-											<a href="research.html" class="image"><img src="images/stitgmergy.png" alt="" /></a>
-											<h3> Fine-Grained Auto-Evaluation for Knowledge Distillation with LLM Web Agents </h3>
-											<p> Recently featured in COLM 2025; the project I led during my AI research internship at LG AI. I developed a novel constraint-based LLM-as-a-judge approach that allowed for highly performant knowledge distillation of LLM agents for automated web browsing.</p>
+											<a href="research.html" target="_blank" class="image"><img src="images/colm.png" alt="" /></a>
+											<h3> Scaling Web Agent Training through Automatic Data Generation and Fine-grained Evaluation </h3>
+											<p> Featured in COLM 2025. My internship project at LG AI. I developed a novel constraint-based LLM-as-a-judge approach that allowed for highly performant knowledge distillation of LLM agents for automated web browsing.</p>
 											<ul class="actions">
-												<li><a href="research.html" class="button">More</a></li>
+												<li><a href="research.html" target="_blank" class="button">Read More</a></li>
 											</ul>
 										</article>
 										<article>
-											<a href="research.html" class="image"><img src="images/colbert.png" alt="" /></a>
+											<a href="research.html" target="_blank" class="image"><img src="images/colbert.png" alt="" /></a>
 											<h3> Efficient Late Interaction Cross-Encoder Model for Reranking</h3>
 											<p> This DistilBERT-based ColBERT candidate generation model achieves top-k recall performance within 10% of the Mind2Web candidate generation baseline, but with 1/20th of the inference time.</p>
 											<ul class="actions">
-												<li><a href="research.html" class="button">More</a></li>
+												<li><a href="research.html" target="_blank" class="button">Read More</a></li>
 											</ul>
 										</article>
 										<article>
-											<a href="research.html" class="image"><img src="images/minigrid.png" alt="" /></a>
+											<a href="research.html" target="_blank" class="image"><img src="images/minigrid.png" alt="" /></a>
 											<h3> Effective Knowledge Distillation from a Hierarchical LLM Agent to an RL Policy</h3>
 											<p> Description needed. </p>
 											<ul class="actions">
-												<li><a href="research.html" class="button">More</a></li>
+												<li><a href="research.html" target="_blank" class="button">Read More</a></li>
 											</ul>
 										</article>
 										<article>
-											<a href="images/annotated-EECS_595_Final_Report.pdf" class="image"><img src="images/cheetah_crop.gif" alt="" /></a>
+											<a href="https://sled.eecs.umich.edu/media/eecs595_fa22/11_Nguyen_Glasscock.pdf" target="_blank" class="image"><img src="images/mujoco.gif" alt="" /></a>
 											<h3>Fully Online Decision Transformer</h3>
 											<p> Here, I adapted an offline RL algorithm for online contexts that leveraged the powerful representation capabilities of the transformer architecture. </p>
 											<ul class="actions">
-												<li><a href="images/annotated-EECS_595_Final_Report.pdf" class="button">More</a></li>
+												<li><a href="https://sled.eecs.umich.edu/media/eecs595_fa22/11_Nguyen_Glasscock.pdf" target="_blank" class="button">Read More</a></li>
+											</ul>
+										</article>
+										<article>
+											<a href="https://github.com/NasikNafi/apdac" target="_blank" class="image"><img src="images/apdac.png" alt="" /></a>
+											<h3>Attention-Based Partial Decoupling of Policy and Value for Generalization in RL</h3>
+											<p> Featured in the NeurIPS 2021 Workshop on Deep RL, this work proposes a actor-critic architecture which separates the policy and value functions during training. Our approach generalizes better than state-of-the-art RL methods while using fewer parameters.</p>
+											<ul class="actions">
+												<li><a href="https://github.com/NasikNafi/apdac" target="_blank" class="button">Read More</a></li>
 											</ul>
 										</article>
 								
+									</div>
+								</section>
+
+								<!-- Section -->
+								<section id="education">
+									<header class="major">
+										<h2>Education</h2>
+									</header>
+									
+									<div class="row gtr-200">
+										<div class="col-4 col-12-medium">
+											<div class="row">
+												<p> <span class="icon solid fa-microscope"></span><b> UC Santa Cruz (2024-Present) </b></p>
+											</div>
+											<blockquote> 
+												<b> Ph.D. Student in Computer Science</b> <br>
+												<br> Dr. Leilani Gilpin | AIEA Lab 
+												<br>
+											</blockquote>
+										</div>
+
+										<div class="col-4 col-12-medium">
+											<div class="row">
+												<p> <span class="icon solid fa-graduation-cap"></span><b>  University of Michigan (2022-2024)</b></p>
+											</div>
+											<blockquote> <b>M.S in Computer Science</b> <br>
+												<br> Dr. Joyce Chai | SLED Lab
+												<br>
+											</blockquote>
+										</div>
+
+										<div class="col-4 col-12-medium">
+											<div class="row">
+												<p> <span class="icon solid fa-graduation-cap"></span><b>  Kansas State University (2018-2022)</b></p>
+											</div>
+											<blockquote> <b>B.S in Computer Science, B.S in Mathematics</b> <br>
+												<br> Dr. Bill Hsu | KDD Lab
+												<br>
+											</blockquote>
+										</div>
 									</div>
 								</section>
 
@@ -130,10 +271,10 @@
 									<article>
 										<a href="#" class="image "><img src="images/icml.png" alt="" /></a>
 										<h3> Paper in preparation for ICML 2026 </h3>
-										<p> October 2025 </p>
+										<p> My current work, in which I leverage reward signals to guide LLM agent pruning in MDPs using a novel REINFORCE-inspired pruning objective, extending LLM pruning to the online agentic domain for the first time.</p>
 										<a href="#" class="image "><img src="images/colm.png" alt="" /></a>
 										<h3> Paper featured in COLM 2025 </h3>
-										<p> October 2025 </p>
+										<p> Resulting from my internship project at LG AI, in which I developed a novel constraint-based LLM-as-a-judge approach for LLM agent knowledge distillation. </p>
 									</article>
 								</div>
 								<ul class="actions">
@@ -143,7 +284,7 @@
 
 							<!-- Footer -->
 								<footer id="footer">
-									<p class="copyright">&copy; Creighton Glasscock. All rights reserved. <br />Website template: <a href="https://github.com/zce/html5up">HTML5 UP</a>.</p>
+									<p class="copyright">&copy; Creighton Glasscock. <br />Powered by <a href="https://github.com/zce/html5up">HTML5 UP</a>.</p>
 								</footer>
 
 						</div>
