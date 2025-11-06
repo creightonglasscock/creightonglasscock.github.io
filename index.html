@@ -91,6 +91,12 @@
 				position: fixed !important;
 				top: 1.75em !important;
 				z-index: 10001 !important;
+				transition: left 0.5s ease !important;
+			}
+
+			/* Move hamburger button with sidebar when inactive */
+			#sidebar.inactive .toggle {
+				left: 0 !important;
 			}
 
 			/* Responsive adjustments */
@@ -115,6 +121,105 @@
 			#banner .button.big {
 				padding-left: 2em !important;
 				padding-right: 2em !important;
+			}
+
+			/* Make buttons wrap when they would be cut off */
+			#banner .actions {
+				display: flex !important;
+				flex-wrap: wrap !important;
+				gap: 0.5em !important;
+			}
+
+			/* Mobile-specific fixes */
+			@media screen and (max-width: 736px) {
+				/* Mobile header layout: hamburger + icons on top row, name on second row */
+				#header {
+					display: flex !important;
+					flex-direction: column !important;
+					align-items: flex-start !important;
+					padding: 1.5em 1em 1em 0 !important;
+				}
+				
+				/* Container for hamburger and icons */
+				#header::before {
+					content: '' !important;
+					display: flex !important;
+					width: 100% !important;
+					height: 3em !important;
+					align-items: center !important;
+					justify-content: space-between !important;
+				}
+				
+				/* Move icons to top row */
+				#header .icons {
+					order: -1 !important;
+					width: auto !important;
+					justify-content: flex-end !important;
+					position: absolute !important;
+					top: 2.8em !important;
+					right: -2em !important;
+					height: auto !important;
+					line-height: normal !important;
+				}
+				
+				#header .icons li {
+					padding-left: 0 !important;
+					padding-right: 0.75em !important;
+				}
+				
+				#header .icons li:last-child {
+					padding-right: 0 !important;
+				}
+				
+				/* Name below hamburger and icons */
+				#header .logo {
+					margin-top: 3em !important;
+					margin-bottom: 0 !important;
+					width: 100% !important;
+				}
+				
+				/* Adjust hamburger button position for new layout */
+				#sidebar .toggle {
+					top: 1.5em !important;
+					left: 1em !important;
+				}
+				
+				#sidebar.inactive .toggle {
+					left: 0 !important;
+				}
+				
+				/* Fix banner stacking on mobile - override portrait styles */
+				#banner {
+					display: flex !important;
+					flex-direction: column !important;
+					-webkit-flex-direction: column !important;
+					-moz-flex-direction: column !important;
+					-ms-flex-direction: column !important;
+				}
+				
+				#banner .image {
+					order: 1 !important;
+					max-width: 100% !important;
+					width: 100% !important;
+					margin: 0 0 2em 0 !important;
+					flex-grow: 0 !important;
+					flex-shrink: 0 !important;
+					height: auto !important;
+					max-height: none !important;
+					min-height: 0 !important;
+				}
+				
+				#banner .image img {
+					height: auto !important;
+				}
+				
+				#banner .content {
+					order: 2 !important;
+					max-width: 100% !important;
+					width: 100% !important;
+					flex-grow: 1 !important;
+					flex-shrink: 1 !important;
+				}
 			}
 
 		</style>
